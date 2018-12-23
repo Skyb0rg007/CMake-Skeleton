@@ -9,11 +9,8 @@ else()
     set(CMAKE_INSTALL_RPATH "\$ORIGIN/../${CMAKE_INSTALL_LIBDIR}")
 endif()
 
-# Enable running and testing on Windows under Debug
-# To test other configs, just `install' to a local dir before testing
-if(WIN32)
-    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG ${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_BINDIR})
-endif()
+# Don't worry about .dll .def files or __declspec macros
+set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 
 # Add the following directories to the project
 add_subdirectory(utils)
