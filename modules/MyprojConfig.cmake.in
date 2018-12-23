@@ -1,0 +1,15 @@
+@PACKAGE_INIT@
+
+include(FindDependencyMacro)
+# Add libraries needed to use your project here
+# ie. if you write
+#  find_package(Python3 REQUIRED COMPONENTS Interpreter)
+# within your project, and the package is needed by users ("INTERFACE package")
+# then add the following line:
+#  find_dependency(Python3 REQUIRED COMPONENTS Interpreter)
+
+
+# Forward the project's exported targets
+include("${CMAKE_CURRENT_LIST_DIR}/MyprojTargets.cmake")
+
+check_required_components("@PACKAGE_NAME@")
