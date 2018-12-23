@@ -7,6 +7,12 @@ target_include_directories(utils
     PUBLIC
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/>
 )
+# Static libs need to have PIE to link to shared libs
+if(BUILD_SHARED_LIBS)
+    set_target_properties(utils PROPERTIES
+        POSITION_INDEPENDENT_CODE TRUE
+    )
+endif()
 # Allow namespaced usage within the build tree
 add_library(Myproj::utils ALIAS utils)
 
