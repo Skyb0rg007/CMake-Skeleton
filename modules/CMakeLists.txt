@@ -2,10 +2,17 @@ include(GNUInstallDirs)
 include(CMakePackageConfigHelpers)
 
 # Setup RPATHs
+# This assumes exe vs lib is <prefix>/<bindir>/exe vs <prefix>/<libdir>/lib
 if(APPLE)
     set(CMAKE_INSTALL_RPATH "@loader_path/../${CMAKE_INSTALL_LIBDIR}")
 else()
     set(CMAKE_INSTALL_RPATH "\$ORIGIN/../${CMAKE_INSTALL_LIBDIR}")
+endif()
+
+# Enable running and testing on Windows under Debug
+# To test other configs, just `install' to a local dir before testing
+if(WIN32)
+    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG ${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_BINDIR})
 endif()
 
 # Add the following directories to the project

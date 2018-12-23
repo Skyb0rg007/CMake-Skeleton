@@ -39,6 +39,12 @@ if(ipo_supported)
     set(CMAKE_INTERPROCEDURAL_OPTIMIZATION_RELEASE ON)
 endif()
 
+# Enable running and testing on Windows under Debug
+# To test other configs, just `install' to a local dir before testing
+if(WIN32)
+    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG ${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_BINDIR})
+endif()
+
 
 add_subdirectory(thirdparty)
 add_subdirectory(modules)
