@@ -1,6 +1,13 @@
 include(GNUInstallDirs)
 include(CMakePackageConfigHelpers)
 
+# Setup RPATHs
+if(APPLE)
+    set(CMAKE_INSTALL_RPATH "@loader_path/../${CMAKE_INSTALL_LIBDIR}")
+else()
+    set(CMAKE_INSTALL_RPATH "\$ORIGIN/../${CMAKE_INSTALL_LIBDIR}")
+endif()
+
 # Add the following directories to the project
 add_subdirectory(utils)
 add_subdirectory(mylib)

@@ -11,8 +11,8 @@ cmake_minimum_required(VERSION 3.9 FATAL_ERROR)
 project(Myproj
     VERSION 0.1.1 
     LANGUAGES C 
-    DESCRIPTION "CMake project in C."
-    HOMEPAGE_URL "github.com"
+    DESCRIPTION "CMake skeleyon project for C."
+    HOMEPAGE_URL "https://github.com/Skyb0rg007/CMake-Skeleton"
 )
 
 ##########################################################################################
@@ -31,6 +31,14 @@ message(STATUS "I am building   : " "${PROJECT_NAME}"        )
 
 # Enable tests as long as BUILD_TESTING is ON
 include(CTest)
+
+# Enable LTO on Release builds
+include(CheckIPOSupported)
+check_ipo_supported(RESULT ipo_supported)
+if(ipo_supported)
+    set(CMAKE_INTERPROCEDURAL_OPTIMIZATION_RELEASE ON)
+endif()
+
 
 add_subdirectory(thirdparty)
 add_subdirectory(modules)
