@@ -1,6 +1,0 @@
-#ifndef MYLIB_CONFIG_H
-#define MYLIB_CONFIG_H
-
-#define MYLIB_VERSION "@PROJECT_VERSION@"
-
-#endif /* MYLIB_CONFIG_H */

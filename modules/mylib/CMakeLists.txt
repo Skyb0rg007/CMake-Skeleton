@@ -1,7 +1,7 @@
 
 # Configure file to give access to macros such as version number
 configure_file(
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/mylib_config.h.in
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/mylib_config.h.in
     ${CMAKE_CURRENT_BINARY_DIR}/include/mylib_config.h
     @ONLY
 )
